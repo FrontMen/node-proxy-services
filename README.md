@@ -74,11 +74,14 @@ The `run.coffee` script will launch two (2) servers:
   
 All applications requests for resources should be directed to the `localhost:8080`. If any requests are actually remote data service requests, those requests are proxied to the remote server. All other requests use the localhost:8000 as a local fallback (and are not proxied).
 
-For the above configuration, the option ` proxy_regexp` is used to specify a regular expression that will be used to match part of the URI. If any AJAX or other HTTP GET uses `/api/json` then it will be routed to the remote server.
+For the above configuration, the option ` proxy_regexp` is used to specify a regular expression that will be used to match part of the URI. 
 
     http://localhost:8080/index.html           --> forwarded to -->  http://localhost:8000/index.html
     http://localhost:8080/api/json/catalog.xml --> proxied to   -->  http://services.mydomain.com:80/catalog.xml
     
+According to our configuration above, if any AJAX or other HTTP GET uses `/api/json` then it will be routed to the remote server at `http://services.mydomain.com:80/`.  
+
+![Screenshot](https://github.com/ThomasBurleson/node-proxy-services/raw/master/docs/using_proxy_services.png)<br/>  
 
 ### Disclaimers
 
