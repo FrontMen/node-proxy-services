@@ -16,18 +16,21 @@
 		# Main application
 		#
 		main = (options) ->
-
+			
 			options ||= { 
 					'proxy_regexp' : /^\/api\/json/
+					'local_port'   : 8080
 					'local_host'   : '127.0.0.1' 		
-					'local_proxy'  : 8080
-					'local_port'   : 8000
-					'remote_host'  : 'data.gridlinked.info'    			
 					'remote_port'  : 80
+					'remote_host'  : 'data.gridlinked.info'  
+
+					# Only used to explicity define the local, hidden web server port
+					#'silent_port'  : 8000
 				}
 
+			# Primary server, proxies specific GETs to remote web 
+			# server or to local web server
 			new ext.HttpProxyServer() .start( options )
-			new ext.HttpServer()      .start( options )
 
 			return	
 
