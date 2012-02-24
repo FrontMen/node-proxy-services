@@ -57,6 +57,9 @@ The run.coffee script contains defaults for local and remote URIs:
 					
 					'remote_host'  : 'services.mydomain.com'    
 					'remote_port'  : 80
+					
+					# disable since default value == local_port + 100
+					#'silent_port'  : 8100
 				}
 
 			new ext.HttpProxyServer() .start( options )
