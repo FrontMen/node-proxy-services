@@ -7,6 +7,8 @@ Developers frequently need a local web server for development purposes. While [n
 Unfortunately, developers often need BOTH a local web server and easy-access to remote data services.
 HTTP Proxy servers allow developers to easily develop HTML5, Javascript,and other applications that consume remote dataservices and `bypass` all security issues of cross-domain restrictions/workarounds.
 
+![Screenshot](https://github.com/ThomasBurleson/node-proxy-services/raw/master/docs/violation.png)<br/>
+
 This project provides CoffeeScript files to easily configure and launch both servers with one (1) single command. 
 
 ### Requirements
@@ -18,8 +20,11 @@ This project provides CoffeeScript files to easily configure and launch both ser
 
 ### Install
 
-Copy the `run.coffee` and `./node_modules` to a `scripts` directory within you project folders.
-Open a Terminal window and cd to your webroot [which is the `apps` folder].
+Copy the `run.coffee` and `./node_modules` to a `scripts` directory within you project folders.<br/>
+Or copy the above files to a common, easily accessible directory<br/>
+Or include the node-proxy-services repository as a subModule within your own git repository.
+
+Open a Terminal window and cd to your project **webroot** [which is the `apps` folder in our case].<br/>
 Run the script:
 
     coffee ../scripts/run.coffee
@@ -58,7 +63,7 @@ The run.coffee script contains defaults for local and remote URIs:
 
 			return	
 
-		# Auto-start the two (2) web servers
+		# Auto-start the web server
 		#
 		main()    
 
@@ -68,19 +73,19 @@ Developers should change the `options` to conform to their desired configuration
 
 The `run.coffee` script will launch two (2) servers:
 
-  * HTTP Proxy server listening on `http://localhost:8080`
-  * HTTP server listening on `http://localhost:8180`… this instance is [Hidden]
+  * HTTP Proxy server listening on `http://localhost:8000`
+  * HTTP server listening on `http://localhost:8100`… this instance is [Hidden]
   
-All applications requests for resources should be directed to the `localhost:8080`. If any requests are actually remote data service requests, those requests are proxied to the remote server. All other requests use the silent web server `localhost:8180` for local, non-proxied web assets.
+All applications requests for resources should be directed to the `localhost:8080`. If any requests are actually remote data service requests, those requests are proxied to the remote server. All other requests use the silent web server `localhost:8100` for local, non-proxied web assets.
 
 For the above configuration, the option ` proxy_regexp` is used to specify a regular expression that will be used to match part of the URI. 
 
-    http://localhost:8080/index.html           --> forwarded to -->  http://localhost:8180/index.html
+    http://localhost:8080/index.html           --> forwarded to -->  http://localhost:8100/index.html
     http://localhost:8080/api/json/catalog.xml --> proxied to   -->  http://services.mydomain.com:80/catalog.xml
     
 According to our configuration above, any AJAX or other HTTP GET that use `/api/json` in the URL will be routed to the remote server at `http://services.mydomain.com:80/`.  
 
-![Screenshot](https://github.com/ThomasBurleson/node-proxy-services/raw/master/docs/using_proxy_services.png)<br/>  
+![Screenshot](https://github.com/ThomasBurleson/node-proxy-services/raw/master/docs/proxy.png)<br/>  
 
 ### Disclaimers
 
