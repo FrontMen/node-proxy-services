@@ -9,7 +9,7 @@ HTTP Proxy servers allow developers to easily develop HTML5, Javascript,and othe
 
 ![Screenshot](https://github.com/ThomasBurleson/node-proxy-services/raw/master/docs/violation.png)<br/>
 
-This project provides CoffeeScript files to easily configure and launch both servers with one (1) single command. 
+This project provides CoffeeScript files to easily configure and launch a local web servers with support for proxied, remote dataservices. one (1) single command. 
 
 ### Requirements
 
