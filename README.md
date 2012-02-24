@@ -80,8 +80,8 @@ All applications requests for resources should be directed to the `localhost:808
 
 For the above configuration, the option ` proxy_regexp` is used to specify a regular expression that will be used to match part of the URI. 
 
-    http://localhost:8080/index.html           --> forwarded to -->  http://localhost:8100/index.html
-    http://localhost:8080/api/json/catalog.xml --> proxied to   -->  http://services.mydomain.com:80/catalog.xml
+    http://localhost:8000/index.html           --> forwarded to -->  http://localhost:8100/index.html
+    http://localhost:8000/api/json/catalog.xml --> proxied to   -->  http://services.mydomain.com:80/catalog.xml
     
 According to our configuration above, any AJAX or other HTTP GET that use `/api/json` in the URL will be routed to the remote server at `http://services.mydomain.com:80/`.  
 
