@@ -87,6 +87,8 @@ According to our configuration above, any AJAX or other HTTP GET that use `/api/
 
 ![Screenshot](https://github.com/ThomasBurleson/node-proxy-services/raw/master/docs/proxy.png)<br/>  
 
+Developers can easily change the local_port (e.g. :8000) or the silent_port (e.g. :8100) to match their own local port requirements.
+
 ### Disclaimers
 
 These scripts are NOT meant for production use. These simple facilitate local web servers with cross-domain support.
