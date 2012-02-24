@@ -74,9 +74,9 @@ Developers should change the `options` to conform to their desired configuration
 The `run.coffee` script will launch two (2) servers:
 
   * HTTP Proxy server listening on `http://localhost:8000`
-  * HTTP server listening on `http://localhost:8100`… this instance is [Hidden]
+  * HTTP server listening on `http://localhost:8100`… [this instance is hidden]
   
-All applications requests for resources should be directed to the `localhost:8080`. If any requests are actually remote data service requests, those requests are proxied to the remote server. All other requests use the silent web server `localhost:8100` for local, non-proxied web assets.
+All applications requests for resources should be directed to the `http://localhost:8000`. If any requests are actually remote data service requests, those requests are proxied to the remote server. All other requests use the silent web server `localhost:8100` for local, non-proxied web assets.
 
 For the above configuration, the option ` proxy_regexp` is used to specify a regular expression that will be used to match part of the URI. 
 
